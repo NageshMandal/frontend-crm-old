@@ -1,0 +1,191 @@
+:root {
+  --borderColor: #e7e4e4;
+  --hoverColor: #e8f3ff;
+  --menuItemActive: #0a66c2;
+  --menuItemDefault: #597191;
+  --menuItemHover: #267df7;
+  --modalContentColor: #ffffff;
+  --normalText: #181a1d;
+
+  &.dark {
+    --borderColor: #37373a;
+    --hoverColor: #1a2c3f;
+    --menuItemActive: #cbcccd;
+    --menuItemDefault: #818181;
+    --menuItemHover: #cbcccd;
+    --modalContentColor: #1e2023;
+    --normalText: #cbcccd;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.react-quill {
+  @apply text-neutral-800;
+
+  &.quill-focus {
+    .ql-toolbar {
+      @apply border-primary;
+    }
+
+    .ql-container {
+      @apply border-primary;
+    }
+  }
+
+  .ql-toolbar {
+    @apply rounded-t-md;
+  }
+
+  .ql-container {
+    @apply rounded-b-md;
+  }
+
+  .ql-picker-options {
+    @apply bg-modalContentColor text-neutral-800 rounded-md border-borderColor #{!important};
+  }
+
+  .ql-editor {
+    @apply min-h-200 max-h-300 overflow-auto scrollbar-thin scrollbar-thumb-neutral-300;
+  }
+}
+
+.dark {
+  .react-quill {
+    @apply text-neutral-300;
+
+    &.quill-focus {
+      .ql-toolbar {
+        @apply border-primary;
+      }
+
+      .ql-container {
+        @apply border-primary;
+      }
+    }
+
+    .ql-toolbar {
+      @apply rounded-t-md border-borderColor-dark;
+    }
+
+    .ql-container {
+      @apply rounded-b-md border-borderColor-dark;
+    }
+
+    .ql-picker-options {
+      @apply bg-modalContentColor-dark text-neutral-300 rounded-md border-borderColor-dark #{!important};
+    }
+
+    .ql-editor {
+      @apply min-h-200 max-h-300 overflow-auto scrollbar-thin scrollbar-thumb-neutral-600;
+    }
+  }
+}
+
+.react-menu {
+  * {
+    @apply dark:scrollbar-thumb-neutral-700 scrollbar-thumb-neutral-300 scrollbar-thin max-h-210;
+  }
+}
+.react-datepicker-wrapper {
+  @apply w-full;
+}
+.react-datepicker-popper,
+.react-datepicker,
+.react-datepicker__time-container,
+.react-datepicker__time,
+.react-datepicker__time-box,
+.react-datepicker__month-container {
+  @apply w-full z-50;
+}
+
+.react-datepicker__header {
+  @apply z-50 bg-primary border-b border-primary  #{!important};
+}
+
+.react-datepicker__triangle {
+  @apply z-50 after:border-b-primary before:border-transparent   #{!important};
+}
+
+.react-datepicker {
+  @apply border-borderColor dark:border-borderColor-dark bg-modalContentColor dark:bg-modalContentColor-dark;
+}
+
+.react-datepicker__day-name {
+  @apply text-white #{!important};
+}
+
+.react-datepicker__week {
+  > div {
+    @apply text-neutral-800 dark:text-neutral-300 hover:bg-hoverColor dark:hover:bg-hoverColor-dark;
+  }
+}
+
+.react-datepicker__week :first-child {
+  @apply text-red-500 #{!important};
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--range-end,
+.react-datepicker__day--keyboard-selected {
+  @apply text-white bg-primary-1 #{!important};
+}
+
+.react-datepicker__day--in-range {
+  @apply text-white #{!important};
+}
+
+.dangerously-html {
+  span,
+  div,
+  font {
+    @apply text-neutral-800 dark:text-neutral-300 #{!important};
+  }
+  a {
+    @apply bg-transparent text-primary #{!important};
+  }
+}
+
+.inbox {
+  .ql-editor {
+    @apply min-h-100 #{!important};
+  }
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in WebKit browsers (Chrome, Safari, etc.) */
+}
+
+@tailwind base;
+@tailwind components;
+
+@layer components {
+  .title-1 {
+    @apply text-neutral-800 dark:text-neutral-300;
+  }
+
+  .title-2 {
+    @apply text-neutral-700 dark:text-neutral-400;
+  }
+
+  .scrollbar-1 {
+    @apply dark:scrollbar-thumb-neutral-700  scrollbar-thumb-neutral-300 scrollbar-thin #{!important};
+  }
+}
+
+@tailwind utilities;
